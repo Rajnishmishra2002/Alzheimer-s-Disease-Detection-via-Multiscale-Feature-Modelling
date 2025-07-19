@@ -1,31 +1,27 @@
 DeepAlz: Alzheimer's Disease Detection via Multiscale Feature Modelling
-
-Our model introduces a novel, computationally efficient deep learning architecture for the multi-class classification of Alzheimer's disease stages from MRI scans, achieving state-of-the-art performance on benchmark datasets.
-
-**Key Features & Achievements:** 
-    State-of-the-Art Performance: Achieved an accuracy of 99.75% on the OASIS dataset and 96.25% on the Kaggle AD dataset, outperforming previous models.
-    Novel Architecture: Built on a lightweight 10-layer depth-separable CNN, making it faster and more efficient than standard CNNs.
-    Improved Spatial Attention (I-SAB): Developed a novel attention mechanism that enhances the model's ability to focus on critical regions within MRI scans by using max, average, and min pooling strategies.
-    Robust & Validated: The model's effectiveness was rigorously tested through extensive experiments, including 6 ablation studies and a domain generalization test on over 6,000 MRI scans.
-    Results
-    Our model demonstrates a significant improvement over existing methods on two publicly available datasets.
-    Performance on Kaggle AD Dataset
-    Model	Accuracy (%)	Precision (%)	Recall (%)	F1-Score (%)
-    Inception-V4	73.75	-	-	45.05
-    DEMNET	85.00	80.00	88.00	83.00
-    ADDTLA	91.70	91.50	93.70	92.50
-    Proposed Model (Ours)	96.25	96.71	96.36	96.52
-    Performance on OASIS Dataset
-    Model	Accuracy (%)	Precision (%)	Recall (%)	F1-Score (%)
-    Ensamble-hybrid deep net	95.23	-	-	-
-    DeepNet	99.68	-	-	99.99
-    Proposed Model (Ours)	99.75	99.63	99.91	99.77
-💾 Datasets
-This project utilizes two publicly accessible datasets. Please download them from their original sources:
-Alzheimer's Dataset (4 class of images): Available on Kaggle. This dataset contains MRI scans categorized into four stages: Mild Demented, Moderate Demented, Non-Demented, and Very Mild Demented.
-OASIS-1: The Open Access Series of Imaging Studies (OASIS) is available at OASIS Brains.
-You will need to preprocess and structure these datasets as expected by the data loader scripts.
-
-
-
-
+Welcome to DeepAlz, a research project born from a desire to tackle a critical real-world problem: the early and accurate diagnosis of Alzheimer's disease. Existing diagnostic methods can be slow and subjective. This project explores how we can build a more robust, efficient, and highly accurate detection system using modern deep learning architectures.
+This is more than just a classification model. It's an end-to-end investigation into efficient network design, novel attention mechanisms, and rigorous scientific validation, culminating in a model that achieves state-of-the-art results and is published in the International Journal of Computational Intelligence Systems.
+What This Project Does
+🧠 High-Accuracy Diagnosis: Accurately classifies brain MRI scans into four stages of Alzheimer's, achieving 99.75% accuracy on the OASIS dataset and 96.25% on the AD-Dataset.
+✨ Novel Attention Mechanism: Introduces the Improved Spatial Attention Block (I-SAB), a custom module designed to help the model focus more effectively on critical regions within MRI scans.
+⚡ Computationally Efficient Design: Built on a Depth-Separable CNN backbone, making the model significantly lighter and faster than traditional CNNs without sacrificing performance.
+🔬 Published, Peer-Reviewed Research: The methodology, results, and contributions of this project have been validated and published in a reputable scientific journal.
+Tech Stack
+This project is built in Python 3.8+ using the following core tools:
+TensorFlow & Keras – For building and training the deep learning model
+Scikit-learn – For performance metrics and model evaluation
+Pandas – For data manipulation and management
+Matplotlib & Seaborn – For data visualization and analyzing results
+NumPy – For fundamental numerical operations
+Features In Action: Classifying Alzheimer's Stages
+The model is trained to identify and differentiate between four distinct classes from MRI scans:
+Non-Demented (Healthy)
+Very Mild Demented
+Mild Demented
+Moderate Demented
+This multi-class capability is crucial for staging the disease, not just detecting its presence.
+Behind the Scenes: How It Works
+Efficient Backbone (Depth-Separable CNNs): Instead of using standard, computationally heavy convolutions, the model's architecture is based on depth-separable layers. This splits the convolution process into two steps (depthwise and pointwise), dramatically reducing the number of parameters and making the model faster to train.
+Improved Spatial Attention (I-SAB): This is the core innovation. Unlike standard attention blocks that only use max and average pooling, the I-SAB incorporates three pooling strategies (max, average, and min). This gives the model a richer, more comprehensive understanding of the spatial features in an MRI, allowing it to better pinpoint subtle signs of disease.
+Multi-Scale Feature Fusion: The I-SAB modules are plugged into multiple layers of the CNN backbone (at the 2nd, 4th, 6th, 8th, and 10th layers). This allows the model to capture disease-related features at different scales and levels of abstraction, from fine textures to broader structural changes.
+Rigorous Validation: The model wasn't just trained and tested. Its performance was confirmed through extensive ablation studies (testing the model with and without key components like the I-SAB) and cross-dataset validation to ensure its results are robust and generalizable.
