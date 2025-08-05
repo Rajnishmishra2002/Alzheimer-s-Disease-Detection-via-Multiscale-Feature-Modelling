@@ -15,7 +15,7 @@ This is more than just a classification model. It's an end-to-end investigation 
 
 ### Tech Stack
 
-This project is built in Python 3.8+ using the following core tools:
+This project is built in Python 3 using the following core tools:
 
 *   **TensorFlow & Keras** – For building and training the deep learning model
 *   **Scikit-learn** – For performance metrics and model evaluation
